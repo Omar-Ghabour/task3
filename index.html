@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>TAG ATTRIBUTE</h1>
+    <div>
+        <img id="photo01" src="images/img-01.jpg" alt="">
+    </div>
+    <button id="PREVIOUS"><<<<<<<</button><BUTTON id="NEXT">>>>>>>></BUTTON>
+
+    <Script>
+        var photos= [
+            "img-01.jpg","img-02.jpg","img-03.jpg","img-04.jpg","img-05.jpg"
+        ]
+        var currentphoto = 0;
+
+        var photoslider = setInterval(photoslider,5000);
+        function photoslider(){
+            currentphoto++;
+            if(currentphoto >= photos.length){
+                currentphoto = 0;
+            }
+            document.getElementById("photo01").setAttribute("src", "images/" + photos[currentphoto]);
+        }
+
+
+
+        document.getElementById("NEXT").addEventListener("click",()=>{
+            currentphoto++;
+            if(currentphoto >= photos.length){
+                currentphoto = 0;
+            }
+            document.getElementById("photo01").setAttribute("src", "images/" + photos[currentphoto]);
+        });
+        document.getElementById("PREVIOUS").addEventListener("click",()=>{
+            currentphoto--;
+            if(currentphoto <0 ){
+                currentphoto = photos.length - 1;
+            }
+            document.getElementById("photo01").setAttribute("src", "images/" + photos[currentphoto]);
+
+        });
+
+
+    </Script>
+</body>
+</html>
